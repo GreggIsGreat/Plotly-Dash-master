@@ -2,8 +2,8 @@ dash==2.0.0
 dash-bootstrap-components==1.0.0
 pandas
 plotly==5.1.0
-scikit-learn==0.24.2
+scikit-learn
 Pillow==8.4.0
 matplotlib
-dash-bootstrap-templates==0.1.0
+dash-bootstrap-templates
 numpy
