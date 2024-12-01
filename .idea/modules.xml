@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Plotly-Dash-master.iml" filepath="$PROJECT_DIR$/.idea/Plotly-Dash-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Plotly-Dash.iml" filepath="$PROJECT_DIR$/.idea/Plotly-Dash.iml" />
     </modules>
   </component>
 </project>
