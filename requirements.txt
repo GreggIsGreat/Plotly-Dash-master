@@ -7,3 +7,5 @@ Pillow==8.4.0
 matplotlib
 dash-bootstrap-templates
 numpy
+flask
+gunicorn
