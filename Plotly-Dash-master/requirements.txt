@@ -1,0 +1,8 @@
+dash==2.9.3
+dash_bootstrap_components==1.4.1
+dash_bootstrap_templates==1.0.8
+Flask==1.1.2
+pandas
+plotly==5.14.1
+scikit_learn
+gunicorn
