@@ -40,7 +40,7 @@ app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.LUX])
 server = Final-Dashboard.server
 
 # read files
-df = pd.read_csv("Plotly-Dash-master/yokyo.log", sep=" ", header=None,
+df = pd.read_csv("yokyo.log", sep=" ", header=None,
                  names=["Timestamp", "IP Address", "HTTP Method",
                         "Path", "Status Code","HTTP Version", "Traffic Source", "User Agent", "Country"],
                  usecols=["Timestamp", "IP Address", "HTTP Method",
