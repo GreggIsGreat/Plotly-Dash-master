@@ -7,6 +7,6 @@ services:
       docker:
         - .
     run:
-      command: gunicorn Final_Dashboard:server
+      command: gunicorn final_dashboard:server
     ports:
       - 10000:10000
