@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: Plotly Dash
+    env: python
+    build:
+      context: .
+      docker:
+        - .
+    run:
+      command: gunicorn Final_Dashboard:server
+    ports:
+      - 10000:10000
