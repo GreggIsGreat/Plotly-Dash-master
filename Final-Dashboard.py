@@ -37,7 +37,7 @@ server = Flask(__name__)
 # app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.LUX])
 
-server = app.server
+server = Final-Dashboard.server
 
 # read files
 df = pd.read_csv("yokyo.log", sep=" ", header=None,
@@ -431,7 +431,7 @@ button_card = dbc.Card(
 )
 
 # load the saved model
-with open('Plotly-Dash-master/lr_yokyo_model', 'rb') as f:
+with open('lr_yokyo_model', 'rb') as f:
     lr = pickle.load(f)
 
 # create label encoders
