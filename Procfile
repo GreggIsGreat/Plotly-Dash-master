@@ -1,1 +1,1 @@
-web: python Final-Dashboard.py
+web: gunicorn app:server
