@@ -37,8 +37,6 @@ server = Flask(__name__)
 # app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.LUX])
 
-server = Final-Dashboard.server
-
 # read files
 df = pd.read_csv("yokyo.log", sep=" ", header=None,
                  names=["Timestamp", "IP Address", "HTTP Method",
