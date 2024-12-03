@@ -1,7 +1,7 @@
 dash
 dash-bootstrap-components
 pandas
-numpy==1.20.3
+numpy
 plotly==5.14.1
 scikit-learn
 Pillow==8.4.0
