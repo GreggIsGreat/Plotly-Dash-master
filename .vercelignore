@@ -1,0 +1,17 @@
+# Exclude large data files
+*.log
+*.csv
+Yokyo_OlympicData.csv
+yokyo.log
+
+# Exclude other unnecessary files
+.git
+.idea
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+*.png
+*.drawio

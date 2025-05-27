@@ -19,8 +19,8 @@ from dash import html
 import dash_bootstrap_components as dbc
 from PIL import Image
 import matplotlib.pyplot as plt
-
-# from PIL import Image
+import os
+from sample_data import generate_sample_data
 
 templates = [
     "LUX"
@@ -37,13 +37,63 @@ server = Flask(__name__)
 # app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.BOOTSTRAP])
 app = dash.Dash(__name__, server=server, external_stylesheets=[dbc.themes.LUX])
 
-# read files
-df = pd.read_csv("yokyo.log", sep=" ", header=None,
-                 names=["Timestamp", "IP Address", "HTTP Method",
-                        "Path", "Status Code","HTTP Version", "Traffic Source", "User Agent", "Country"],
-                 usecols=["Timestamp", "IP Address", "HTTP Method",
-                        "Path", "Status Code","HTTP Version","Traffic Source", "User Agent", "Country"])
-# df = df.sample(frac=1)
+# Load data based on environment
+def load_data():
+    # Check if we're in production (Vercel) or development
+    if os.environ.get('VERCEL_ENV') == 'production':
+        # In production, use the sample data generator
+        print("Running in production - using sample data")
+        return generate_sample_data(1000)
+    else:
+        # In development, try to load the real data file
+        try:
+            print("Running in development - using real data file")
+            return pd.read_csv("yokyo.log", sep=" ", header=None,
+                         names=["Timestamp", "IP Address", "HTTP Method",
+                                "Path", "Status Code","HTTP Version", "Traffic Source", "User Agent", "Country"],
+                         usecols=["Timestamp", "IP Address", "HTTP Method",
+                                "Path", "Status Code","HTTP Version","Traffic Source", "User Agent", "Country"])
+        except Exception as e:
+            # If file not found or other error, fall back to sample data
+            print(f"Error loading real data: {e} - falling back to sample data")
+            return generate_sample_data(1000)
+
+# Load the data
+df = load_data()
+
+# Function to load data from external sources
+# def load_data():
+#     try:
+#         # Replace these URLs with your actual storage URLs (GitHub, S3, etc.)
+#         log_url = "YOUR_STORAGE_URL/yokyo.log"
+        
+#         # For CSV files, you can use pandas to read directly from URL
+#         # For log files, we need to download and process
+#         response = requests.get(log_url)
+#         log_content = StringIO(response.text)
+        
+#         df = pd.read_csv(log_content, sep=" ", header=None,
+#                      names=["Timestamp", "IP Address", "HTTP Method",
+#                             "Path", "Status Code","HTTP Version", "Traffic Source", "User Agent", "Country"],
+#                      usecols=["Timestamp", "IP Address", "HTTP Method",
+#                             "Path", "Status Code","HTTP Version","Traffic Source", "User Agent", "Country"])
+        
+#         return df
+#     except Exception as e:
+#         # Fallback to a smaller sample if loading fails
+#         print(f"Error loading data: {e}")
+#         # Create a small sample dataframe with the same structure
+#         return pd.DataFrame({
+#             "Timestamp": ["01/Jan/2021:00:00:00"],
+#             "IP Address": ["192.168.1.1"],
+#             "HTTP Method": ["GET"],
+#             "Path": ["/"],
+#             "Status Code": [200],
+#             "HTTP Version": ["HTTP/1.1"],
+#             "Traffic Source": ["Direct"],
+#             "User Agent": ["Sample Browser"],
+#             "Country": ["Sample Country"]
+#         })
 
 # Define aliases for User Agent and Path
 user_agent_aliases = {

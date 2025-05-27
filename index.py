@@ -1,4 +1,4 @@
-from final_dashboard import server
+from final_dashboard import app
 
-# This is the handler that Vercel uses
-app = server
+# This makes the app from final_dashboard.py the main entry point for Vercel
+# No modifications to the original dashboard
