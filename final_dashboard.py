@@ -10,12 +10,9 @@ from dash_bootstrap_templates import load_figure_template
 from sklearn.preprocessing import LabelEncoder
 import pickle
 from dash import dash_table
-import io
-import base64
 from dash.dependencies import Input, Output, State
 from dash import html
 import dash_bootstrap_components as dbc
-from PIL import Image
 import os
 from sample_data import generate_sample_data
 
