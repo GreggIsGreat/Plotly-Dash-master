@@ -2,10 +2,8 @@ dash
 dash-bootstrap-components
 pandas
 numpy
-plotly==5.14.1
+plotly
 scikit-learn
-Pillow==8.4.0
-matplotlib
 dash-bootstrap-templates
 flask
 gunicorn
