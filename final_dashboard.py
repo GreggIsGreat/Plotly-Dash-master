@@ -5,7 +5,6 @@ from flask import Flask
 import dash_bootstrap_components as dbc
 import pandas as pd
 import plotly.express as px
-import plotly.graph_objects as go
 from dash.dependencies import Input, Output, State
 from dash_bootstrap_templates import load_figure_template
 from sklearn.preprocessing import LabelEncoder
@@ -13,12 +12,10 @@ import pickle
 from dash import dash_table
 import io
 import base64
-import plotly.io as pio
 from dash.dependencies import Input, Output, State
 from dash import html
 import dash_bootstrap_components as dbc
 from PIL import Image
-import matplotlib.pyplot as plt
 import os
 from sample_data import generate_sample_data
 
